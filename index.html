@@ -11,6 +11,26 @@
     }
 </style>
 <audio controls autoplay>
-  <source src="motivation.mp3" type="audio/mpeg">
+  <source src="motivation.mp3" type="audio/mpeg" volume="0.25">
 </audio>
+<center>
+<p id="countdown" style="text-shadow: 2px 2px #ff0000;"></p>
+</center>
+<script>
+var countDownDate = new Date("May 4, 2019 20:00:00").getTime();
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "YEET";
+  }
+}, 1000);
+</script>
 </html>
