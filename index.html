@@ -1,21 +1,29 @@
 <html>
 <style>
-    { margin: 0; padding: 0; }
+{ margin: 0; padding: 0; }
 
-    html { 
-        background: url('nelly.png') no-repeat center center fixed; 
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
+html { 
+    background: url('nelly.png') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+countdown {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-shadow: 4px 4px #0e0f11;
+  font-size: 80px;
+}
 </style>
-<audio controls autoplay>
-  <source src="motivation.mp3" type="audio/mpeg" volume="0.25">
+<audio controls autoplay volume="0.25">
+  <source src="motivation.mp3" type="audio/mpeg">
 </audio>
-<center>
-<p id="countdown" style="text-shadow: 2px 2px #ff0000;"></p>
-</center>
+<p id="countdown" class="countdown"></p>
 <script>
 var countDownDate = new Date("May 4, 2019 20:00:00").getTime();
 var x = setInterval(function() {
