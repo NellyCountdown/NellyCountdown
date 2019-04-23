@@ -17,19 +17,20 @@ html {
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  text-shadow: 2px 2px black;
-  font-size: 240px;
+  text-shadow: 4px 4px black;
+  font-size: 620px;
   color: white;
+  white-space: nowrap;
 }
 </style>
-<audio controls autoplay id="myaudio">
+<audio controls loop autoplay id="myaudio">
 	<source src="motivation.mp3" type="audio/mpeg">
 </audio>
 <p id="countdown" class="countdown"></p>
 <script>
 //set starting volume for audio
 var audio = document.getElementById("myaudio");
-audio.volume = 0.2;
+audio.volume = 0.1;
 //countdown
 var countDownDate = new Date("May 4, 2019 20:00:00").getTime();
 var x = setInterval(function() {
