@@ -27,7 +27,7 @@ html {
 <audio controls loop autoplay id="myaudio">
 	<source src="motivation.mp3" type="audio/mpeg">
 </audio>
-<p id="countdown" class="countdown"></p>
+<p id="countdown" class="countdown" onresize="scaleCountdown()"></p>
 <script>
 //set starting volume for audio
 var audio = document.getElementById("myaudio");
@@ -44,12 +44,18 @@ var x = setInterval(function() {
   document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
   + minutes + "m " + seconds + "s ";
 }, 1000);
-//scale countdown font by screen dimensions
-var w = window.innerWidth;
-var h = window.innerHeight;
-var widthRatio = 2560 / w;
-var heightRatio = 1440 / h;
-var smallestRatio = Math.min(widthRatio, heightRatio);
-document.getElementById("countdown").style.fontSize = 350 * smallestRatio;
+
+function scaleCountdown()
+{
+  //scale countdown font by screen dimensions
+  var w = window.innerWidth;
+  var h = window.innerHeight;
+  var widthRatio = 2560 / w;
+  var heightRatio = 1440 / h;
+  var smallestRatio = Math.min(widthRatio, heightRatio);
+  document.getElementById("countdown").style.fontSize = 350 * smallestRatio;
+}
+
+scaleCountdown();
 </script>
 </html>
