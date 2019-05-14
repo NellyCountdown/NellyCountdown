@@ -1,27 +1,27 @@
 <html>
 <style>
-{ margin: 0; padding: 0; }
+  { margin: 0; padding: 0; }
 
-html { 
-    background: url('nelly.png') no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
+  html { 
+      background: url('nelly.png') no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+  }
 
-.countdown {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  text-shadow: 6px 6px black;
-  font-size: 360px;
-  color: white;
-  white-space: nowrap;
-}
+  .countdown {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-shadow: 6px 6px black;
+    font-size: 360px;
+    color: white;
+    white-space: nowrap;
+  }
 </style>
 <body onresize="scaleCountdown()">
   <iframe src="silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
@@ -31,34 +31,33 @@ html {
   <p id="countdown" class="countdown"></p>
 </body>
 <script>
-//set starting volume for audio
-var audio = document.getElementById("myaudio");
-audio.volume = 0.1;
-//countdown
-var countDownDate = new Date("August 23, 2019 19:00:00").getTime();
-var x = setInterval(function() {
-  var now = new Date().getTime();
-  var distance = countDownDate - now;
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-}, 1000);
+  //set starting volume for audio
+  var audio = document.getElementById("myaudio");
+  audio.volume = 0.1;
+  //countdown
+  var countDownDate = new Date("August 23, 2019 19:00:00").getTime();
+  var x = setInterval(function() {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+  }, 1000);
 
-function scaleCountdown()
-{
-  //scale countdown font by screen dimensions
-  var w = window.innerWidth;
-  var h = window.innerHeight;
-  var widthRatio = 2560 / w;
-  var heightRatio = 1440 / h;
-  var smallestRatio = Math.min(widthRatio, heightRatio);
-  document.getElementById("countdown").style.fontSize = 350 * smallestRatio;
-  console.log(350 * smallestRatio);
-}
+  function scaleCountdown()
+  {
+    //scale countdown font by screen dimensions
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    var widthRatio = w / 2560;
+    var heightRatio = h / 1440;
+    var smallestRatio = Math.min(widthRatio, heightRatio);
+    document.getElementById("countdown").style.fontSize = 325 * smallestRatio;
+  }
 
-scaleCountdown();
+  scaleCountdown();
 </script>
 </html>
