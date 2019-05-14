@@ -23,11 +23,13 @@ html {
   white-space: nowrap;
 }
 </style>
-<iframe src="silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
-<audio controls loop autoplay id="myaudio">
-	<source src="motivation.mp3" type="audio/mpeg">
-</audio>
-<p id="countdown" class="countdown" onresize="scaleCountdown()"></p>
+<body onresize="scaleCountdown()">
+  <iframe src="silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+  <audio controls loop autoplay id="myaudio">
+  	<source src="motivation.mp3" type="audio/mpeg">
+  </audio>
+  <p id="countdown" class="countdown"></p>
+</body>
 <script>
 //set starting volume for audio
 var audio = document.getElementById("myaudio");
@@ -54,6 +56,7 @@ function scaleCountdown()
   var heightRatio = 1440 / h;
   var smallestRatio = Math.min(widthRatio, heightRatio);
   document.getElementById("countdown").style.fontSize = 350 * smallestRatio;
+  console.log(350 * smallestRatio);
 }
 
 scaleCountdown();
